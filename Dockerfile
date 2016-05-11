@@ -2,11 +2,13 @@ FROM ubuntu:15.10
 RUN apt-get update && \
     apt-get install -y build-essential m4 git python python-pip
 
+# Make buildbot user
 RUN mkdir /home/buildbot && \
     groupadd -g 1000 dev && \
     useradd -g dev -G sudo -s /bin/bash buildbot && \
-    echo 'buildbot:buildbot' | chpasswd
+    echo 'buildbot:buildbot' | chpasswd && \
+    chown -R buildbot /home/buildbot
 
-RUN chown -R buildbot /home/buildbot
-
-CMD runuser -l buildbot -c 'cd /home/buildbot/binary-pkg && make distclean && make bdist-sage-linux'
+USER buildbot
+WORKDIR /home/buildbot/binary-pkg
+CMD make distclean && make bdist-sage-linux
