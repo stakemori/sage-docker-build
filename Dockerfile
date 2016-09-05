@@ -11,4 +11,4 @@ RUN mkdir /home/buildbot && \
 
 USER buildbot
 WORKDIR /home/buildbot/binary-pkg
-CMD make distclean && make bdist-sage-linux
+CMD export MAKE="make -j4" && make distclean && make bdist-sage-linux
