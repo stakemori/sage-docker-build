@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 RUN apt-get update && \
-    apt-get install -y build-essential m4 git python python-pip
+    apt-get install -y build-essential m4 git python python-pip openssl libssl-dev
 
 # Make buildbot user
 RUN mkdir /home/buildbot && \
