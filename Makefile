@@ -1,4 +1,4 @@
-VOLUME := '/home/ubuntu/binary-pkg:/home/docker/binary-pkg'
+VOLUME := '$(HOME)/binary-pkg:/home/docker/binary-pkg'
 
 docker-build:
 	docker build -t sage-build .
