@@ -1,6 +1,8 @@
 FROM ubuntu:17.04
 RUN apt-get update && \
-    apt-get install -y build-essential m4 git python-pip gdb
+    apt-get install -y build-essential m4 git python-pip gdb\
+    binutils gcc g++ gfortran make m4 perl tar \
+    openssl libssl-dev
 
 # Create a user
 RUN mkdir /home/docker && \
