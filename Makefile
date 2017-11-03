@@ -6,6 +6,6 @@ binary-pkg-clone:
 docker-build:
 	docker build -t sage-build .
 build-sage:
-	docker run -v $(VOLUME) sage-build
+	docker run -v $(VOLUME) -m 4096m sage-build
 docker-login:
 	docker run -it -v $(VOLUME) -m 4096m sage-build
