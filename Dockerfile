@@ -13,4 +13,4 @@ RUN mkdir /home/docker && \
 
 USER docker
 WORKDIR /home/docker/binary-pkg
-# CMD make distclean && make bdist-sage-linux
+CMD make distclean && make bdist-sage-linux
